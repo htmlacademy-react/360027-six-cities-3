@@ -13,7 +13,7 @@ const OfferTypeToLabel: Record<OfferType, string> = {
   hotel: 'Hotel',
 };
 
-type PlaceCardType = 'cities' | 'favorites';
+type PlaceCardType = 'cities' | 'favorites' | 'near-places';
 
 type PlaceCardSettings = {
   articleClassName: string;
@@ -37,6 +37,13 @@ const PlaceCardTypeToSettings: Record<PlaceCardType, PlaceCardSettings> = {
     infoClassName: 'favorites__card-info',
     imageWidth: 150,
     imageHeight: 110,
+  },
+  'near-places': {
+    articleClassName: 'near-places__card',
+    imageWrapperClassName: 'near-places__image-wrapper',
+    infoClassName: '',
+    imageWidth: 260,
+    imageHeight: 200,
   },
 };
 

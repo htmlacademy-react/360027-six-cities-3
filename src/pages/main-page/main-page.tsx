@@ -43,6 +43,7 @@ function MainPage({ offers }: MainPageProps): JSX.Element {
                 <Sorting />
                 <PlacesList
                   offers={offers}
+                  type="cities"
                   onActiveOfferChange={setActiveOfferId}
                 />
               </section>

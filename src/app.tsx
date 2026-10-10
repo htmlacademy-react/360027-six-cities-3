@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '@/const';
 import { offers } from '@/mocks/offers';
+import { reviews } from '@/mocks/reviews';
 import MainPage from '@/pages/main-page/main-page';
 import PrivateRoute from '@/components/private-route/private-route';
 import Loader from '@/components/loader/loader';
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: AppRoute.Offer,
-    element: <OfferPage offers={offers} />,
+    element: <OfferPage offers={offers} reviews={reviews} />,
   },
   {
     path: AppRoute.NotFound,

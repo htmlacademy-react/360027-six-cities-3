@@ -1,7 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { AppRoute } from '@/const';
-import { Offers } from '@/types/offer';
-import { Reviews } from '@/types/review';
+import useAppSelector from '@/hooks/use-app-selector';
+import { selectOffers } from '@/store/selectors';
 import Header from '@/components/header/header';
 import CardBadge from '@/components/card-badge/card-badge';
 import ReviewsList from '@/components/reviews-list/reviews-list';
@@ -12,13 +12,9 @@ import { getRatingWidth } from '@/utils';
 
 const MAX_NEAR_OFFERS_COUNT = 3;
 
-type OfferPageProps = {
-  offers: Offers;
-  reviews: Reviews;
-};
-
-function OfferPage({ offers, reviews }: OfferPageProps): JSX.Element {
+function OfferPage(): JSX.Element {
   const { id } = useParams();
+  const offers = useAppSelector(selectOffers);
   const offer = offers.find((item) => item.id === id);
 
   if (!offer) {
@@ -162,7 +158,7 @@ function OfferPage({ offers, reviews }: OfferPageProps): JSX.Element {
                 </div>
               </div>
               <section className="offer__reviews reviews">
-                <ReviewsList reviews={reviews} />
+                <ReviewsList reviews={[]} />
                 <ReviewForm />
               </section>
             </div>

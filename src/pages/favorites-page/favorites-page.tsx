@@ -1,13 +1,12 @@
-import { Offers } from '@/types/offer';
+import useAppSelector from '@/hooks/use-app-selector';
+import { selectFavoriteOffers } from '@/store/selectors';
 import PlaceCard from '@/components/place-card/place-card';
 import Logo from '@/components/logo/logo';
 import Header from '@/components/header/header';
 
-type FavoritesPageProps = {
-  offers: Offers;
-};
+function FavoritesPage(): JSX.Element {
+  const offers = useAppSelector(selectFavoriteOffers);
 
-function FavoritesPage({ offers }: FavoritesPageProps): JSX.Element {
   return (
     <div className="page">
       <Header />

@@ -1,8 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '@/const';
-import { offers } from '@/mocks/offers';
-import { reviews } from '@/mocks/reviews';
+import useAppSelector from '@/hooks/use-app-selector';
+import { selectIsOffersLoading } from '@/store/selectors';
 import MainPage from '@/pages/main-page/main-page';
 import PrivateRoute from '@/components/private-route/private-route';
 import Loader from '@/components/loader/loader';
@@ -29,13 +29,13 @@ const router = createBrowserRouter([
     path: AppRoute.Favorites,
     element: (
       <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-        <FavoritesPage offers={offers} />
+        <FavoritesPage />
       </PrivateRoute>
     ),
   },
   {
     path: AppRoute.Offer,
-    element: <OfferPage offers={offers} reviews={reviews} />,
+    element: <OfferPage />,
   },
   {
     path: AppRoute.NotFound,
@@ -48,6 +48,12 @@ const router = createBrowserRouter([
 ]);
 
 function App(): JSX.Element {
+  const isOffersLoading = useAppSelector(selectIsOffersLoading);
+
+  if (isOffersLoading) {
+    return <Loader />;
+  }
+
   return (
     <Suspense fallback={<Loader />}>
       <RouterProvider router={router} />

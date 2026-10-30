@@ -28,6 +28,12 @@ export const selectOffers = (state: State) => state.offers;
 
 export const selectSortType = (state: State) => state.sortType;
 
+export const selectIsOffersLoading = (state: State) => state.isOffersLoading;
+
+export const selectFavoriteOffers = createSelector([selectOffers], (offers) =>
+  offers.filter((offer) => offer.isFavorite),
+);
+
 export const selectCityOffers = createSelector(
   [selectOffers, selectCity],
   (offers, city) => offers.filter((offer) => offer.city.name === city),

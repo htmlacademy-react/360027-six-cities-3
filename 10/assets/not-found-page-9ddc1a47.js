@@ -1,1 +1,0 @@
-import{j as o,h as n,b as t}from"./index-4a6373d7.js";function e(){return o.jsxs("div",{className:"not-found",children:[o.jsx("h1",{className:"not-found__title",children:"404. Page not found"}),o.jsx(n,{className:"not-found__link",to:t.Root,children:"Go to main page"})]})}export{e as default};

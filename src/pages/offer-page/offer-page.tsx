@@ -28,13 +28,9 @@ import Map from '@/components/map/map';
 import PlacesList from '@/components/places-list/places-list';
 import Loader from '@/components/loader/loader';
 import FullPageError from '@/components/full-page-error/full-page-error';
-import { getRatingWidth } from '@/utils';
+import { getPluralizedLabel, getRatingWidth } from '@/utils';
 
 const MAX_IMAGES_COUNT = 6;
-
-function getPluralizedLabel(count: number, word: string): string {
-  return `${count} ${count === 1 ? word : `${word}s`}`;
-}
 
 function OfferPage(): JSX.Element {
   const { id } = useParams();

@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { CityName } from '@/types/offer';
+import { getPluralizedLabel } from '@/utils';
 import useAppDispatch from '@/hooks/use-app-dispatch';
 import useAppSelector from '@/hooks/use-app-selector';
 import { changeCity } from '@/store/app-process/app-process';
@@ -53,7 +54,7 @@ function MainPage(): JSX.Element {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
                 <b className="places__found">
-                  {offers.length} places to stay in {city}
+                  {getPluralizedLabel(offers.length, 'place')} to stay in {city}
                 </b>
                 <Sorting />
                 <PlacesList

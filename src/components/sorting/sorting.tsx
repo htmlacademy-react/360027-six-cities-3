@@ -4,7 +4,7 @@ import { SortType } from '@/const';
 import useAppDispatch from '@/hooks/use-app-dispatch';
 import useAppSelector from '@/hooks/use-app-selector';
 import useOutsideClick from '@/hooks/use-outside-click';
-import { changeSort } from '@/store/app-process/app-process';
+import { sortTypeChange } from '@/store/app-process/app-process';
 import { selectSortType } from '@/store/app-process/selectors';
 import { SortTypeDictionary } from './const';
 
@@ -19,7 +19,7 @@ function Sorting(): JSX.Element {
   };
 
   const handleOptionClick = (sortType: SortType) => {
-    dispatch(changeSort(sortType));
+    dispatch(sortTypeChange(sortType));
     setIsOpened(false);
   };
 

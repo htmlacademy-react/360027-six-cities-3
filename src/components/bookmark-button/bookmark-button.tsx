@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import { AppRoute, AuthorizationStatus } from '@/const';
+import { Size } from '@/types/size';
 import useAppDispatch from '@/hooks/use-app-dispatch';
 import useAppSelector from '@/hooks/use-app-selector';
 import { changeFavoriteStatusAction } from '@/store/api-actions';
@@ -9,12 +10,7 @@ import { selectFavoriteIdsSet } from '@/store/favorites-data/selectors';
 
 type BookmarkButtonType = 'place-card' | 'offer';
 
-type IconSize = {
-  width: number;
-  height: number;
-};
-
-const BookmarkButtonTypeToIconSize: Record<BookmarkButtonType, IconSize> = {
+const BookmarkButtonTypeToIconSize: Record<BookmarkButtonType, Size> = {
   'place-card': { width: 18, height: 19 },
   offer: { width: 31, height: 33 },
 };

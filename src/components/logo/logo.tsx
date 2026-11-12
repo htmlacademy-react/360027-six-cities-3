@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '@/const';
+import { Size } from '@/types/size';
 
 type LogoType = 'header' | 'footer';
 
@@ -9,7 +10,7 @@ type LogoProps = {
   isActive?: boolean;
 };
 
-const LogoTypeToSize: Record<LogoType, { width: number; height: number }> = {
+const LogoTypeToSize: Record<LogoType, Size> = {
   header: {
     width: 81,
     height: 41,

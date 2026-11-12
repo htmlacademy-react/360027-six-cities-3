@@ -12,6 +12,7 @@ type ServerError = {
 const BACKEND_URL = 'https://15.design.htmlacademy.pro/six-cities';
 const REQUEST_TIMEOUT = 5000;
 const TOKEN_HEADER_NAME = 'X-Token';
+const AUTH_CHECK_METHOD = 'get';
 const NETWORK_ERROR_MESSAGE =
   'No connection to the server. Check your network and try again.';
 const SERVER_ERROR_MESSAGE = 'Something went wrong. Server error';
@@ -19,7 +20,7 @@ const SERVER_ERROR_MESSAGE = 'Something went wrong. Server error';
 function isAuthCheckError(error: AxiosError): boolean {
   return (
     error.response?.status === StatusCodes.UNAUTHORIZED &&
-    error.config?.method === 'get' &&
+    error.config?.method === AUTH_CHECK_METHOD &&
     error.config.url === APIRoute.Login
   );
 }

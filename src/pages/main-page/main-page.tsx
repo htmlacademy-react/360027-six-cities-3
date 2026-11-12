@@ -4,7 +4,7 @@ import { CityName } from '@/types/offer';
 import { getPluralizedLabel } from '@/utils';
 import useAppDispatch from '@/hooks/use-app-dispatch';
 import useAppSelector from '@/hooks/use-app-selector';
-import { changeCity } from '@/store/app-process/app-process';
+import { cityChange } from '@/store/app-process/app-process';
 import { selectCity } from '@/store/app-process/selectors';
 import {
   selectCityOffers,
@@ -27,7 +27,7 @@ function MainPage(): JSX.Element {
 
   const handleCityChange = useCallback(
     (newCity: CityName) => {
-      dispatch(changeCity(newCity));
+      dispatch(cityChange(newCity));
     },
     [dispatch],
   );

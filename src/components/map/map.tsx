@@ -3,26 +3,33 @@ import { Icon, layerGroup, Marker } from 'leaflet';
 import clsx from 'clsx';
 import { City, Offer } from '@/types/offer';
 import useMap from '@/hooks/use-map';
-import { URL_MARKER_CURRENT, URL_MARKER_DEFAULT } from './const';
+import {
+  MARKER_ANCHOR,
+  MARKER_SIZE,
+  URL_MARKER_CURRENT,
+  URL_MARKER_DEFAULT,
+} from './const';
 import 'leaflet/dist/leaflet.css';
+
+type MapOffer = Pick<Offer, 'id' | 'location'>;
 
 type MapProps = {
   className: string;
   city: City;
-  offers: Pick<Offer, 'id' | 'location'>[];
+  offers: MapOffer[];
   activeOfferId: string | null;
 };
 
 const defaultCustomIcon = new Icon({
   iconUrl: URL_MARKER_DEFAULT,
-  iconSize: [27, 39],
-  iconAnchor: [13.5, 39],
+  iconSize: MARKER_SIZE,
+  iconAnchor: MARKER_ANCHOR,
 });
 
 const currentCustomIcon = new Icon({
   iconUrl: URL_MARKER_CURRENT,
-  iconSize: [27, 39],
-  iconAnchor: [13.5, 39],
+  iconSize: MARKER_SIZE,
+  iconAnchor: MARKER_ANCHOR,
 });
 
 function Map({
